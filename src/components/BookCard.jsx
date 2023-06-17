@@ -27,7 +27,7 @@ export const BookCard = ({ book }) => {
           <p>{author}</p>
         </div>
         <select
-          className="mx-1"
+          className="mx-1 hover:cursor-pointer"
           name="dropdown"
           onChange={(e) =>
             setBooks({
