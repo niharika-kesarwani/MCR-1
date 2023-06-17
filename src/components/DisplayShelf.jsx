@@ -11,7 +11,7 @@ export const DisplayShelf = ({ currentShelf }) => {
 
   return (
     <div>
-      <ul className="my-2 flex flex-wrap justify-around gap-x-2 overflow-x-auto">
+      <ul className="mb-2 mt-5 flex flex-wrap justify-around gap-x-2 overflow-x-auto">
         {shelfBooks?.map((book) => (
           <BookCard key={book.id} book={book} />
         ))}
