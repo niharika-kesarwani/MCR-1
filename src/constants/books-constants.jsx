@@ -1,5 +1,7 @@
 export const booksConstants = {
   UPDATE_SHELF: "UPDATE_SHELF",
+  SEARCH_INPUT: "SEARCH_INPUT",
+  EMPTY_SEARCH_RESULTS: "EMPTY_SEARCH_RESULTS",
 };
 
 export const shelvesConstants = {
