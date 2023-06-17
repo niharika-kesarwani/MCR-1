@@ -1,4 +1,6 @@
-export const booksConstants = {};
+export const booksConstants = {
+  UPDATE_SHELF: "UPDATE_SHELF",
+};
 
 export const shelvesConstants = {
   CURRENTLY_READING: "CURRENTLY_READING",
@@ -10,4 +12,5 @@ export const shelves = {
   CURRENTLY_READING: "Currently Reading",
   WANT_TO_READ: "Want to Read",
   READ: "Read",
+  NONE: "None",
 };

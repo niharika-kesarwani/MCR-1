@@ -1,10 +1,13 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { shelves } from "../constants/books-constants";
+import { booksConstants, shelves } from "../constants/books-constants";
+import { useBook } from "../main";
 
 export const BookCard = ({ book }) => {
+  const { setBooks } = useBook();
   const { _id, id, title, author, genres, coverImg, shelf } = book;
-  const dropDownOptions = [...Object.values(shelves), "None"];
+  const { UPDATE_SHELF } = booksConstants;
+  const dropDownOptions = Object.values(shelves);
 
   return (
     <li
@@ -23,14 +26,29 @@ export const BookCard = ({ book }) => {
           <p className="line-clamp-1 text-lg font-bold">{title}</p>
           <p>{author}</p>
         </div>
-        <select className="mx-1" name="dropdown">
+        <select
+          className="mx-1"
+          name="dropdown"
+          onChange={(e) =>
+            setBooks({
+              type: UPDATE_SHELF,
+              payload: { item: book, value: e.target.value },
+            })
+          }
+        >
           {dropDownOptions?.map((dropDownOption, index) => {
             return Object.keys(shelves)[index] === shelf ? (
-              <option key={dropDownOption} selected>
+              <option
+                key={dropDownOption}
+                value={Object.keys(shelves)[index]}
+                selected
+              >
                 {dropDownOption}
               </option>
             ) : (
-              <option key={dropDownOption}>{dropDownOption}</option>
+              <option key={dropDownOption} value={Object.keys(shelves)[index]}>
+                {dropDownOption}
+              </option>
             );
           })}
         </select>
